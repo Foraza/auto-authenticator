@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Authenticator",
+    "version": "1.0",
+    "description": "Adiciona o código do Google Authenticator automaticamente na tela de login do Google",
+    "action": {
+        "defualt_icon": "images/icon.pgn"
+    },
+    "content_scripts": [
+    {
+      "js": ["scripts/addToken.js"],
+      "matches": [
+        "https://accounts.google.com/v3/signin/challenge/totp/*"
+      ]
+    }
+  ]
+}
