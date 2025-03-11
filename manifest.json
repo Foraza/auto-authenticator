@@ -8,9 +8,9 @@
     },
     "content_scripts": [
     {
-      "js": ["scripts/addToken.js"],
+      "js": ["scripts/otpauth.umd.min.js", "scripts/addToken.js"],
       "matches": [
-        "https://accounts.google.com/v3/signin/challenge/totp/*"
+        "https://accounts.google.com/v3/signin/challenge/*"
       ]
     }
   ]

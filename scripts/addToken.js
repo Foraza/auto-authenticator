@@ -1,11 +1,11 @@
 //Função para gerar o código do Google Authenticator
-function generateAuthToken() {
+async function generateAuthToken() {
+  const tokenInput = document.querySelector('#totpPin');
+
+  //Executa o código somente se o input do token TOTP estiver presente na tela
+  if(tokenInput) {
     //TODO: Substitua pelo seu secret
-    const secret = "LALALALALALA";
-  
-    const libUrl =
-      "https://cdnjs.cloudflare.com/ajax/libs/otpauth/9.1.1/otpauth.umd.min.js";
-    eval(UrlFetchApp.fetch(libUrl).getContentText());
+    const secret = "LALALALA";
     
     const token = new OTPAuth.TOTP({
       secret,
@@ -13,6 +13,10 @@ function generateAuthToken() {
       digits: 6,
       period: 30,
     }).generate();
-  
+
+    tokenInput.value = token;
     console.log(token);
   }
+}
+
+generateAuthToken();
